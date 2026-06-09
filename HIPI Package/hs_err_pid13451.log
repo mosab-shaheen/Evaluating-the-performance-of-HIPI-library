@@ -1,0 +1,313 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 357957632 bytes for committing reserved memory.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_linux.cpp:2627), pid=13451, tid=0xb6a53b40
+#
+# JRE version:  (8.0_112-b15) (build )
+# Java VM: Java HotSpot(TM) Client VM (25.112-b15 mixed mode, sharing linux-x86 )
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0xb690c800):  JavaThread "Unknown thread" [_thread_in_vm, id=13458, stack(0xb6a03000,0xb6a54000)]
+
+Stack: [0xb6a03000,0xb6a54000],  sp=0xb6a52a90,  free space=318k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0x5bd06f]  VMError::report_and_die()+0x16f
+V  [libjvm.so+0x20cd15]  report_vm_out_of_memory(char const*, int, unsigned int, VMErrorType, char const*)+0x55
+V  [libjvm.so+0x49fd26]  os::Linux::commit_memory_impl(char*, unsigned int, bool)+0xe6
+V  [libjvm.so+0x4a01f8]  os::pd_commit_memory(char*, unsigned int, unsigned int, bool)+0x28
+V  [libjvm.so+0x49a14c]  os::commit_memory(char*, unsigned int, unsigned int, bool)+0x2c
+V  [libjvm.so+0x5b910c]  VirtualSpace::expand_by(unsigned int, bool)+0x1ec
+V  [libjvm.so+0x5b9bad]  VirtualSpace::initialize(ReservedSpace, unsigned int)+0xbd
+V  [libjvm.so+0x29e2c2]  CardGeneration::CardGeneration(ReservedSpace, unsigned int, int, GenRemSet*)+0xa2
+V  [libjvm.so+0x573801]  TenuredGeneration::TenuredGeneration(ReservedSpace, unsigned int, int, GenRemSet*)+0x41
+V  [libjvm.so+0x29f2e5]  GenerationSpec::init(ReservedSpace, int, GenRemSet*)+0x295
+V  [libjvm.so+0x291a50]  GenCollectedHeap::initialize()+0x170
+V  [libjvm.so+0x58bd9d]  Universe::initialize_heap()+0xcd
+V  [libjvm.so+0x58c0d3]  universe_init()+0x23
+V  [libjvm.so+0x2c1355]  init_globals()+0x55
+V  [libjvm.so+0x57cc2b]  Threads::create_vm(JavaVMInitArgs*, bool*)+0x24b
+V  [libjvm.so+0x33c0fc]  JNI_CreateJavaVM+0x5c
+C  [libjli.so+0x6e28]  JavaMain+0x98
+C  [libpthread.so.0+0x6305]  start_thread+0xe5
+C  [libc.so.6+0xe947e]  clone+0x6e
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+
+Other Threads:
+
+=>0xb690c800 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=13458, stack(0xb6a03000,0xb6a54000)]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+08048000-08049000 r-xp 00000000 08:01 274026     /home/mosab/Desktop/eclipse/jdk1.8.0_112/bin/java
+08049000-0804a000 rw-p 00000000 08:01 274026     /home/mosab/Desktop/eclipse/jdk1.8.0_112/bin/java
+08c5d000-08c7e000 rw-p 00000000 00:00 0          [heap]
+743ff000-74455000 rw-p 00000000 00:00 0 
+74455000-745ff000 ---p 00000000 00:00 0 
+745ff000-7f0a0000 rw-p 00000000 00:00 0 
+7f0a0000-89b50000 ---p 00000000 00:00 0 
+9f0b0000-b4600000 ---p 00000000 00:00 0 
+b466a000-b47e1000 rw-p 00000000 00:00 0 
+b47e1000-b4860000 ---p 00000000 00:00 0 
+b4860000-b4888000 rwxp 00000000 00:00 0 
+b4888000-b6860000 ---p 00000000 00:00 0 
+b6860000-b6879000 r-xp 00000000 08:01 274265     /home/mosab/Desktop/eclipse/jdk1.8.0_112/jre/lib/i386/libzip.so
+b6879000-b687a000 rw-p 00019000 08:01 274265     /home/mosab/Desktop/eclipse/jdk1.8.0_112/jre/lib/i386/libzip.so
+b687a000-b6885000 r-xp 00000000 08:01 394762     /lib/i386-linux-gnu/libnss_files-2.24.so
+b6885000-b6886000 r--p 0000a000 08:01 394762     /lib/i386-linux-gnu/libnss_files-2.24.so
+b6886000-b6887000 rw-p 0000b000 08:01 394762     /lib/i386-linux-gnu/libnss_files-2.24.so
+b6887000-b688d000 rw-p 00000000 00:00 0 
+b688d000-b6898000 r-xp 00000000 08:01 394772     /lib/i386-linux-gnu/libnss_nis-2.24.so
+b6898000-b6899000 r--p 0000a000 08:01 394772     /lib/i386-linux-gnu/libnss_nis-2.24.so
+b6899000-b689a000 rw-p 0000b000 08:01 394772     /lib/i386-linux-gnu/libnss_nis-2.24.so
+b689a000-b68b1000 r-xp 00000000 08:01 394756     /lib/i386-linux-gnu/libnsl-2.24.so
+b68b1000-b68b2000 r--p 00016000 08:01 394756     /lib/i386-linux-gnu/libnsl-2.24.so
+b68b2000-b68b3000 rw-p 00017000 08:01 394756     /lib/i386-linux-gnu/libnsl-2.24.so
+b68b3000-b68b5000 rw-p 00000000 00:00 0 
+b68b5000-b68bd000 r-xp 00000000 08:01 394758     /lib/i386-linux-gnu/libnss_compat-2.24.so
+b68bd000-b68be000 r--p 00007000 08:01 394758     /lib/i386-linux-gnu/libnss_compat-2.24.so
+b68be000-b68bf000 rw-p 00008000 08:01 394758     /lib/i386-linux-gnu/libnss_compat-2.24.so
+b68ca000-b68d2000 rw-s 00000000 08:01 923999     /tmp/hsperfdata_mosab/13451
+b68d2000-b68f6000 r-xp 00000000 08:01 274260     /home/mosab/Desktop/eclipse/jdk1.8.0_112/jre/lib/i386/libjava.so
+b68f6000-b68f7000 rw-p 00024000 08:01 274260     /home/mosab/Desktop/eclipse/jdk1.8.0_112/jre/lib/i386/libjava.so
+b68f7000-b68fe000 r-xp 00000000 08:01 394814     /lib/i386-linux-gnu/librt-2.24.so
+b68fe000-b68ff000 r--p 00006000 08:01 394814     /lib/i386-linux-gnu/librt-2.24.so
+b68ff000-b6900000 rw-p 00007000 08:01 394814     /lib/i386-linux-gnu/librt-2.24.so
+b6900000-b6929000 rw-p 00000000 00:00 0 
+b6929000-b6a00000 ---p 00000000 00:00 0 
+b6a03000-b6a06000 ---p 00000000 00:00 0 
+b6a06000-b6a54000 rw-p 00000000 00:00 0 
+b6a54000-b6aa7000 r-xp 00000000 08:01 394737     /lib/i386-linux-gnu/libm-2.24.so
+b6aa7000-b6aa8000 ---p 00053000 08:01 394737     /lib/i386-linux-gnu/libm-2.24.so
+b6aa8000-b6aa9000 r--p 00053000 08:01 394737     /lib/i386-linux-gnu/libm-2.24.so
+b6aa9000-b6aaa000 rw-p 00054000 08:01 394737     /lib/i386-linux-gnu/libm-2.24.so
+b6aaa000-b7102000 r-xp 00000000 08:01 274235     /home/mosab/Desktop/eclipse/jdk1.8.0_112/jre/lib/i386/client/libjvm.so
+b7102000-b7128000 rw-p 00657000 08:01 274235     /home/mosab/Desktop/eclipse/jdk1.8.0_112/jre/lib/i386/client/libjvm.so
+b7128000-b7550000 rw-p 00000000 00:00 0 
+b7550000-b7703000 r-xp 00000000 08:01 394681     /lib/i386-linux-gnu/libc-2.24.so
+b7703000-b7704000 ---p 001b3000 08:01 394681     /lib/i386-linux-gnu/libc-2.24.so
+b7704000-b7706000 r--p 001b3000 08:01 394681     /lib/i386-linux-gnu/libc-2.24.so
+b7706000-b7707000 rw-p 001b5000 08:01 394681     /lib/i386-linux-gnu/libc-2.24.so
+b7707000-b770a000 rw-p 00000000 00:00 0 
+b770a000-b770d000 r-xp 00000000 08:01 394699     /lib/i386-linux-gnu/libdl-2.24.so
+b770d000-b770e000 r--p 00002000 08:01 394699     /lib/i386-linux-gnu/libdl-2.24.so
+b770e000-b770f000 rw-p 00003000 08:01 394699     /lib/i386-linux-gnu/libdl-2.24.so
+b770f000-b7723000 r-xp 00000000 08:01 272709     /home/mosab/Desktop/eclipse/jdk1.8.0_112/lib/i386/jli/libjli.so
+b7723000-b7724000 rw-p 00014000 08:01 272709     /home/mosab/Desktop/eclipse/jdk1.8.0_112/lib/i386/jli/libjli.so
+b7724000-b773d000 r-xp 00000000 08:01 394808     /lib/i386-linux-gnu/libpthread-2.24.so
+b773d000-b773e000 r--p 00018000 08:01 394808     /lib/i386-linux-gnu/libpthread-2.24.so
+b773e000-b773f000 rw-p 00019000 08:01 394808     /lib/i386-linux-gnu/libpthread-2.24.so
+b773f000-b7741000 rw-p 00000000 00:00 0 
+b7747000-b7748000 rw-p 00000000 00:00 0 
+b7748000-b7753000 r-xp 00000000 08:01 274211     /home/mosab/Desktop/eclipse/jdk1.8.0_112/jre/lib/i386/libverify.so
+b7753000-b7754000 rw-p 0000b000 08:01 274211     /home/mosab/Desktop/eclipse/jdk1.8.0_112/jre/lib/i386/libverify.so
+b7754000-b7757000 rw-p 00000000 00:00 0 
+b7757000-b7759000 r--p 00000000 00:00 0          [vvar]
+b7759000-b775b000 r-xp 00000000 00:00 0          [vdso]
+b775b000-b777d000 r-xp 00000000 08:01 394655     /lib/i386-linux-gnu/ld-2.24.so
+b777d000-b777e000 r--p 00000000 00:00 0 
+b777e000-b777f000 r--p 00022000 08:01 394655     /lib/i386-linux-gnu/ld-2.24.so
+b777f000-b7780000 rw-p 00023000 08:01 394655     /lib/i386-linux-gnu/ld-2.24.so
+bf998000-bf999000 rwxp 00000000 00:00 0 
+bf9c9000-bf9ec000 rw-p 00000000 00:00 0          [stack]
+
+VM Arguments:
+jvm_args: -Xms512m -Xmx1024m -Dfile.encoding=UTF-8 
+java_command: hipi.examples.bundler.Bundler /home/mosab/Desktop/input /home/mosab/Desktop/output/HIB/output.hib 10
+java_class_path (initial): /home/mosab/workspace/HIPI Package/bin:/home/mosab/workspace/Hadoop Jars/Binaries/activation-1.1.jar:/home/mosab/workspace/Hadoop Jars/Binaries/annotations-api.jar:/home/mosab/workspace/Hadoop Jars/Binaries/aopalliance-1.0.jar:/home/mosab/workspace/Hadoop Jars/Binaries/apacheds-i18n-2.0.0-M15.jar:/home/mosab/workspace/Hadoop Jars/Binaries/apacheds-kerberos-codec-2.0.0-M15.jar:/home/mosab/workspace/Hadoop Jars/Binaries/api-asn1-api-1.0.0-M20.jar:/home/mosab/workspace/Hadoop Jars/Binaries/api-i18n-1.0.0-M20.jar:/home/mosab/workspace/Hadoop Jars/Binaries/api-util-1.0.0-M20.jar:/home/mosab/workspace/Hadoop Jars/Binaries/asm-3.2.jar:/home/mosab/workspace/Hadoop Jars/Binaries/avro-1.7.4.jar:/home/mosab/workspace/Hadoop Jars/Binaries/aws-java-sdk-1.7.4.jar:/home/mosab/workspace/Hadoop Jars/Binaries/azure-storage-2.0.0.jar:/home/mosab/workspace/Hadoop Jars/Binaries/commons-daemon.jar:/home/mosab/workspace/Hadoop Jars/Binaries/tomcat-juli.jar:/home/mosab/workspace/Hadoop Jars/Binaries/bootstrap.jar:/home/mosab/workspace/Hadoop Jars/Binaries/catalina.jar:/home/mosab/workspace/Hadoop Jars/Binaries/catalina-ant.jar:/home/mosab/workspace/Hadoop Jars/Binaries/catalina-ha.jar:/home/mosab/workspace/Hadoop Jars/Binaries/catalina-tribes.jar:/home/mosab/workspace/Hadoop Jars/Binaries/commons-beanutils-1.7.0.jar:/home/mosab/workspace/Hadoop Jars/Binaries/commons-beanutils-core-1.8.0.jar:/home/mosab/workspace/Hadoop Jars/Binaries/commons-cli-1.2.jar:/home/mosab/workspace/Hadoop Jars/Binaries/commons-codec-1.4.jar:/home/mosab/workspace/Hadoop Jars/Binaries/commons-collections-3.2.2.jar:/home/mosab/workspace/Hadoop Jars/Binaries/commons-compress-1.4.1.jar:/home/mosab/workspace/Hadoop Jars/Binaries/commons-configuration-1.6.jar:/home/mosab/workspace/Hadoop Jars/Binaries/commons-daemon-1.0.13.jar:/home/mosab/workspace/Hadoop Jars/Binaries/commons-digester-1.8.jar:/home/mosab/workspace/Hadoop Jars/Binaries/commons-httpclient-3.1.jar:/home/mosab/workspace/Hadoop J
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=/home/mosab/bin:/home/mosab/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+LD_LIBRARY_PATH=/home/mosab/Desktop/eclipse/jdk1.8.0_112/jre/lib/i386/client:/home/mosab/Desktop/eclipse/jdk1.8.0_112/jre/lib/i386:
+SHELL=/bin/bash
+DISPLAY=:0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0x5bdb80], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0x5bdb80], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0x49ca30], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.so+0x49ca30], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.so+0x49ca30], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0x49ca30], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR1: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGUSR2: [libjvm.so+0x49e2c0], sa_mask[0]=00100000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGINT: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGTERM: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGQUIT: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+
+
+---------------  S Y S T E M  ---------------
+
+OS:DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=16.10
+DISTRIB_CODENAME=yakkety
+DISTRIB_DESCRIPTION="Ubuntu 16.10"
+
+uname:Linux 4.8.0-22-generic #24-Ubuntu SMP Sat Oct 8 09:14:42 UTC 2016 i686
+libc:glibc 2.24 NPTL 2.24 
+rlimit: STACK 8192k, CORE 0k, NPROC 6678, NOFILE 65536, AS infinity
+load average:1.30 0.93 0.54
+
+/proc/meminfo:
+MemTotal:         895172 kB
+MemFree:           58388 kB
+MemAvailable:      22524 kB
+Buffers:            3964 kB
+Cached:            49504 kB
+SwapCached:        17004 kB
+Active:           388576 kB
+Inactive:         373548 kB
+Active(anon):     361896 kB
+Inactive(anon):   350028 kB
+Active(file):      26680 kB
+Inactive(file):    23520 kB
+Unevictable:          32 kB
+Mlocked:              32 kB
+HighTotal:          8072 kB
+HighFree:            216 kB
+LowTotal:         887100 kB
+LowFree:           58172 kB
+SwapTotal:        817148 kB
+SwapFree:         221812 kB
+Dirty:               100 kB
+Writeback:             0 kB
+AnonPages:        691844 kB
+Mapped:            32852 kB
+Shmem:              3264 kB
+Slab:              29172 kB
+SReclaimable:      11948 kB
+SUnreclaim:        17224 kB
+KernelStack:        3800 kB
+PageTables:         7856 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     1264732 kB
+Committed_AS:    3750296 kB
+VmallocTotal:     122880 kB
+VmallocUsed:           0 kB
+VmallocChunk:          0 kB
+AnonHugePages:    249856 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+CmaTotal:              0 kB
+CmaFree:               0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:       71672 kB
+DirectMap2M:      841728 kB
+
+
+CPU:total 2 (2 cores per cpu, 1 threads per core) family 6 model 15 stepping 13, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, tsc
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 15
+model name	: Intel(R) Core(TM)2 Duo CPU     T5870  @ 2.00GHz
+stepping	: 13
+microcode	: 0xa4
+cpu MHz		: 2000.988
+cache size	: 2048 KB
+physical id	: 0
+siblings	: 1
+core id		: 0
+cpu cores	: 1
+apicid		: 0
+initial apicid	: 0
+fdiv_bug	: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 10
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts mmx fxsr sse sse2 ss nx constant_tsc arch_perfmon pebs bts tsc_reliable nonstop_tsc aperfmperf eagerfpu pni ssse3 x2apic hypervisor dtherm ida
+bugs		:
+bogomips	: 4002.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 15
+model name	: Intel(R) Core(TM)2 Duo CPU     T5870  @ 2.00GHz
+stepping	: 13
+microcode	: 0xa4
+cpu MHz		: 2000.988
+cache size	: 2048 KB
+physical id	: 2
+siblings	: 1
+core id		: 0
+cpu cores	: 1
+apicid		: 2
+initial apicid	: 2
+fdiv_bug	: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 10
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts mmx fxsr sse sse2 ss nx constant_tsc arch_perfmon pebs bts tsc_reliable nonstop_tsc aperfmperf eagerfpu pni ssse3 x2apic hypervisor dtherm ida
+bugs		:
+bogomips	: 4002.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 895172k(58388k free), swap 817148k(221816k free)
+
+vm_info: Java HotSpot(TM) Client VM (25.112-b15) for linux-x86 JRE (1.8.0_112-b15), built on Sep 22 2016 19:45:47 by "java_re" with gcc 4.3.0 20080428 (Red Hat 4.3.0-8)
+
+time: Wed Nov 30 17:26:21 2016
+elapsed time: 0 seconds (0d 0h 0m 0s)
+
